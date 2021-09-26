@@ -1,6 +1,3 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-
 import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import "./App.css";
@@ -14,27 +11,6 @@ import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 
 function App() {
-  const MONTH = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Agu",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-
-  const [userStats, setUserStats] = useState([]);
-
-  useEffect(() => {
-    const getStats = async () => {};
-  }, []);
-
   return (
     <Router>
       <Topbar />

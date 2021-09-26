@@ -1,7 +1,10 @@
-import "./widgetSm.css";
+import { useState } from "react";
 import { Visibility } from "@material-ui/icons";
 
+import "./widgetSm.css";
+
 export default function WidgetSm() {
+  const [newUsers, setNewUsers] = useState([])
   return (
     <div className="widgetSm">
       <span className="widgetSmTitle">New Join Members</span>
