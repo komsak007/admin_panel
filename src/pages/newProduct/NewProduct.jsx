@@ -1,60 +1,129 @@
+import React, { useState } from "react";
+
 import "./newProduct.css";
 
 export default function NewProduct() {
+  const [movie, setMovie] = useState(null);
+  const [img, setImg] = useState(null);
+  const [imgTitle, setImgTitle] = useState(null);
+  const [imgSm, setImgSm] = useState(null);
+  const [trailer, setTrailer] = useState(null);
+  const [video, setvideo] = useState(null);
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setMovie({ ...movie, [e.target.name]: value });
+  };
+
   return (
     <div className="newProduct">
       <h1 className="addProductTitle">New Movie</h1>
       <form className="addProductForm">
         <div className="addProductItem">
           <label>Image</label>
-          <input type="file" id="img" />
+
+          <input
+            type="file"
+            id="img"
+            name="img"
+            onChange={(e) => setImg(e.target.files[0])}
+          />
         </div>
         <div className="addProductItem">
           <label>Title image</label>
-          <input type="file" id="imgTitle" />
+          <input
+            type="file"
+            id="imgTitle"
+            name="imgTitle"
+            onChange={(e) => setImgTitle(e.target.files[0])}
+          />
+          <img src="" alt="" id="image" />
         </div>
         <div className="addProductItem">
           <label>Thumbnail image</label>
-          <input type="file" id="imgSm" />
+          <input
+            type="file"
+            id="imgSm"
+            name="imgSm"
+            onChange={(e) => setImgSm(e.target.files[0])}
+          />
         </div>
         <div className="addProductItem">
           <label>Title</label>
-          <input type="text" placeholder="John Wick" />
+          <input
+            type="text"
+            name="title"
+            placeholder="John Wick"
+            onChange={handleChange}
+          />
         </div>
         <div className="addProductItem">
           <label>Description</label>
-          <input type="text" placeholder="description" />
+          <input
+            type="text"
+            name="desc"
+            placeholder="description"
+            onChange={handleChange}
+          />
         </div>
         <div className="addProductItem">
           <label>Year</label>
-          <input type="text" placeholder="year" />
+          <input
+            type="text"
+            name="year"
+            placeholder="year"
+            onChange={handleChange}
+          />
         </div>
         <div className="addProductItem">
           <label>Genre</label>
-          <input type="text" placeholder="genre" />
+          <input
+            type="text"
+            name="genre"
+            placeholder="genre"
+            onChange={handleChange}
+          />
         </div>
         <div className="addProductItem">
           <label>Duration</label>
-          <input type="text" placeholder="duration" />
+          <input
+            type="text"
+            name="duration"
+            placeholder="duration"
+            onChange={handleChange}
+          />
         </div>
         <div className="addProductItem">
           <label>Limit</label>
-          <input type="text" placeholder="limit" />
+          <input
+            type="text"
+            name="limit"
+            placeholder="limit"
+            onChange={handleChange}
+          />
         </div>
         <div className="addProductItem">
           <label>Is Series?</label>
-          <select name="active" id="isSeries">
+          <select name="isSeries" id="isSeries" onChange={handleChange}>
             <option value="false">No</option>
             <option value="true">Yes</option>
           </select>
         </div>
         <div className="addProductItem">
           <label>Trailer</label>
-          <input type="file" />
+          <input
+            type="file"
+            name="trailer"
+            onChange={(e) => setTrailer(e.target.files[0])}
+          />
         </div>
         <div className="addProductItem">
           <label>Video</label>
-          <input type="file" />
+          <input
+            type="file"
+            name="video"
+            onChange={(e) => video(e.target.files[0])}
+          />
         </div>
         <button className="addProductButton">Create</button>
       </form>
